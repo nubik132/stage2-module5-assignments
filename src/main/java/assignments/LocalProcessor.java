@@ -19,14 +19,16 @@ public class LocalProcessor {
     private Long period;
     private String processorVersion;
     private Integer valueOfCheap;
+    private Scanner informationScanner;
     private List<String> stringArrayList;
 
     public LocalProcessor(String processorName, Long period, String processorVersion, Integer valueOfCheap,
-                          LinkedList<String> stringArrayList) {
+                          Scanner informationScanner, LinkedList<String> stringArrayList) {
         this.processorName = processorName;
         this.period = period;
         this.processorVersion = processorVersion;
         this.valueOfCheap = valueOfCheap;
+        this.informationScanner = informationScanner;
         this.stringArrayList = stringArrayList;
     }
 
@@ -35,6 +37,7 @@ public class LocalProcessor {
         this.period = 0L;
         this.processorVersion = "0.0.0";
         this.valueOfCheap = 0;
+        this.informationScanner = null;
         this.stringArrayList = new LinkedList<>();
     }
 
