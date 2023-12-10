@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 public class LocalProcessor {
     private String processorName;
-    private Long period = 10_000_000_000_000L;
+    private Long period;
     private String ProcessorVersion;
     private Integer valueOfCheap;
     private List<String> stringArrayList;
