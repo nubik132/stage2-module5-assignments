@@ -21,6 +21,7 @@ public class LocalProcessor {
     private Integer valueOfCheap;
     private Scanner informationScanner;
     private List<String> stringArrayList;
+    private StringBuilder stringBuilder;
 
     public LocalProcessor(String processorName, Long period, String processorVersion, Integer valueOfCheap,
                           Scanner informationScanner, LinkedList<String> stringArrayList) {
@@ -30,6 +31,7 @@ public class LocalProcessor {
         this.valueOfCheap = valueOfCheap;
         this.informationScanner = informationScanner;
         this.stringArrayList = stringArrayList;
+        this.stringBuilder = new StringBuilder();
     }
 
     public LocalProcessor() {
@@ -39,6 +41,7 @@ public class LocalProcessor {
         this.valueOfCheap = 0;
         this.informationScanner = null;
         this.stringArrayList = new LinkedList<>();
+        this.stringBuilder = new StringBuilder();
     }
 
     @ListIteratorAnnotation
@@ -49,9 +52,9 @@ public class LocalProcessor {
     }
 
     @FullNameProcessorGeneratorAnnotation
-    public String getFullNameProcessorGenerator() {
-        StringBuilder stringBuilder = new StringBuilder(processorName);
-        for (String s : stringArrayList) {
+    public String getFullNameProcessorGenerator(LinkedList<String> list) {
+        stringBuilder = new StringBuilder(processorName);
+        for (String s : list) {
             stringBuilder.append(s).append(" ");
         }
         return stringBuilder.toString();
@@ -59,10 +62,10 @@ public class LocalProcessor {
 
     @ReadFullProcessorNameAnnotation
     public String readFullProcessorName(File file) throws FileNotFoundException {
-        Scanner scanner = new Scanner(file);
-        StringBuilder stringBuilder = new StringBuilder();
-        while (scanner.hasNext()) {
-            stringBuilder.append(scanner.nextLine());
+        informationScanner = new Scanner(file);
+        stringBuilder = new StringBuilder();
+        while (informationScanner.hasNext()) {
+            stringBuilder.append(informationScanner.nextLine());
         }
         return stringBuilder.toString();
     }
