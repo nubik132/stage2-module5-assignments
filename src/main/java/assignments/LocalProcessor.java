@@ -1,23 +1,23 @@
 package assignments;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
-
 import assignments.annotations.FullNameProcessorGeneratorAnnotation;
 import assignments.annotations.ListIteratorAnnotation;
 import assignments.annotations.ReadFullProcessorNameAnnotation;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
 @Getter
 @Setter
 public class LocalProcessor {
     private String processorName;
     private Long period;
-    private String ProcessorVersion;
+    private String processorVersion;
     private Integer valueOfCheap;
     private List<String> stringArrayList;
 
@@ -25,9 +25,17 @@ public class LocalProcessor {
                           LinkedList<String> stringArrayList) {
         this.processorName = processorName;
         this.period = period;
-        ProcessorVersion = processorVersion;
+        this.processorVersion = processorVersion;
         this.valueOfCheap = valueOfCheap;
         this.stringArrayList = stringArrayList;
+    }
+
+    public LocalProcessor() {
+        this.processorName = "Null";
+        this.period = 0L;
+        this.processorVersion = "0.0.0";
+        this.valueOfCheap = 0;
+        this.stringArrayList = new LinkedList<>();
     }
 
     @ListIteratorAnnotation
